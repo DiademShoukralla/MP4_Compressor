@@ -6,6 +6,10 @@ import subprocess
 Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
 filenames = askopenfilenames() # show an "Open" dialog box and return the path to the selected file
 
+if not filenames or len(filenames) == 0:
+    print("No input files were provided")
+    exit()
+
 for filename in filenames:
     file_dir = os.path.abspath(filename).rsplit("\\", 1)
     compressed_dir = "compressed"
